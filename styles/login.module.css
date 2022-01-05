@@ -1,0 +1,25 @@
+.formBox {
+  padding: 25px;
+  margin: 50px auto;
+  width: 90%;
+  border-radius: 20px;
+  background: #ffff;
+  box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 25%);
+}
+
+.formBox input {
+  width: 100%;
+  border-radius: 5px;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #65b19b;
+}
+
+.button {
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: none;
+  background: #16ffb8;
+  display: block;
+  margin: 20px auto;
+}
