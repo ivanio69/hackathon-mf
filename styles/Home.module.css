@@ -16,7 +16,7 @@
 .goblintext {
   width: 227px;
   height: 77px;
-  background: #fff;
+  background: var(--second);
   box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 25%);
   border-radius: 20px 20px 20px 0;
   display: flex;
@@ -28,7 +28,7 @@
 }
 
 .gtext {
-  color: black;
+  color: var(--text);
   font-size: 13px;
   font-weight: 400;
 }
@@ -36,7 +36,7 @@
 .taskbox {
   width: 90%;
   min-height: 500px;
-  background: white;
+  background: var(--second);
   border-radius: 20px;
   margin: 20px auto;
   box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 25%);
@@ -90,7 +90,6 @@
 
 .task {
   font-size: 13px;
-  color: black;
   font-weight: bold;
 }
 
@@ -106,4 +105,10 @@
   height: 12px;
   width: 12px;
   border-radius: 50px;
+}
+.tasklinegrad {
+  height: 100%;
+  background: linear-gradient(to right, #3bf5bd, #c7ffee);
+  border-radius: 5px;
+  transition: 0.5s;
 }

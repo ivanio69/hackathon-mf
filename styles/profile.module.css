@@ -1,0 +1,107 @@
+.accountflexbox {
+  display: flex;
+  width: 85%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5% 0;
+}
+
+.accountflexbox div {
+  height: 40px;
+  width: 40px;
+  background: black;
+}
+
+.accava {
+  height: 270px;
+  width: 270px;
+  border-radius: 50%;
+  background: rebeccapurple;
+  margin: 0 auto;
+}
+
+.username {
+  font-size: 36px;
+  text-align: center;
+  padding: 20px 0;
+  font-weight: bold;
+}
+
+.intervalbox {
+  width: 90%;
+  background: var(--second);
+  border-radius: 20px;
+  margin: 40px auto;
+  padding: 20px 10px;
+}
+
+.intointerval {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.intervaltext {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.accseebox {
+  width: 90%;
+  background: var(--second);
+  border-radius: 20px;
+  margin: 40px auto;
+  padding: 20px 10px;
+}
+
+.accseetext {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.coffeebox {
+  width: 90%;
+  background: var(--second);
+  border-radius: 20px;
+  margin: 40px auto;
+  padding: 20px 10px;
+}
+
+.coffeetext {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.coffeeflexbox {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.coffeeflexbox div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coffeeflexbox div p {
+  padding-left: 5px;
+}
+
+.coffeebox *,
+.accseebox *,
+.intervalbox * {
+  opacity: 50%;
+}
+
+.button {
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: none;
+  background: #16ffb8;
+  display: block;
+  margin: 20px auto;
+  width: 90%;
+  color: black;
+}

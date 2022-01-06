@@ -1,0 +1,18 @@
+.footerbox {
+  width: 90%;
+  height: 63px;
+  background: var(--second);
+  border-radius: 20px;
+  position: fixed;
+  bottom: 20px;
+  right: 5%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 25%);
+  z-index: 69;
+}
+
+.svg {
+  filter: var(--ic-f);
+}

@@ -6,10 +6,15 @@ import { useState, useEffect } from "react";
 export default function Home() {
   let doneTasks = 0;
   const [tasks, setTasks] = useState([]);
+  let DTC = 0;
+  tasks.forEach((e) => {
+    if (e.done === true) {
+      DTC = DTC + 1;
+    }
+  });
   useEffect(() => {
     setTasks(process.browser ? JSON.parse(gLS("tasks")) : null);
   }, []);
-
   return (
     <div className={styles.container}>
       <Head>
@@ -52,7 +57,12 @@ export default function Home() {
             {process.browser > null && tasks !== null && tasks.length > 0 ? (
               <>
                 <div className={styles.taskline}>
-                  <div className={styles.tasklinefilled} />
+                  <div
+                    className={styles.tasklinegrad}
+                    style={{
+                      width: String((DTC / tasks.length) * 100) + "%",
+                    }}
+                  />
                 </div>
                 <p className={styles.tasktext}>
                   У тебя {tasks.length} задач(и) на сегодня, из них{" "}
