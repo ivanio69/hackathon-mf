@@ -76,6 +76,7 @@
   border-radius: 10px;
   background: rgba(176, 214, 173, 50%);
 }
+
 .flextaskboxdone {
   text-decoration: line-through;
   opacity: 50%;
@@ -106,4 +107,14 @@
   height: 12px;
   width: 12px;
   border-radius: 50px;
+}
+
+.button {
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: none;
+  background: #16ffb8;
+  display: block;
+  margin: 20px auto;
+  width: 90%;
 }

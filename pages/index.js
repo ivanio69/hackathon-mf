@@ -2,8 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { getFromLocalStorage as gLS, saveToLocalStorage as sLS } from "./_lib";
-
+import { useState, useEffect } from "react";
 export default function Home() {
+  let doneTasks = 0;
+  const [tasks, setTasks] = useState([]);
+  useEffect(() => {
+    setTasks(process.browser ? JSON.parse(gLS("tasks")) : null);
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -43,15 +49,19 @@ export default function Home() {
               )}
               !
             </p>
-            {process.browser > null &&
-            gLS("tasks") > null &&
-            JSON.parse(gLS("tasks")).length > 0 ? (
+            {process.browser > null && tasks !== null && tasks.length > 0 ? (
               <>
                 <div className={styles.taskline}>
                   <div className={styles.tasklinefilled} />
                 </div>
                 <p className={styles.tasktext}>
-                  У тебя 18 задач на сегодня, из них 5 завершены.
+                  У тебя {tasks.length} задач(и) на сегодня, из них{" "}
+                  {typeof tasks.map === "function"
+                    ? tasks.map((e) => {
+                        if (e.done === true) doneTasks = doneTasks + 1;
+                      })
+                    : null}
+                  {doneTasks} завершены.
                 </p>
               </>
             ) : (
@@ -59,10 +69,42 @@ export default function Home() {
             )}
           </div>
           <div className={styles.secondtaskbox}>
-            {process.browser > null &&
-            gLS("tasks") > null &&
-            JSON.parse(gLS("tasks")).length > 0 ? (
-              <>{/*TODO*/}</>
+            {process.browser > null && tasks !== null && tasks.length > 0 ? (
+              typeof tasks.map === "function" ? (
+                tasks.map((e) => {
+                  return (
+                    <>
+                      <div
+                        onClick={() => {
+                          if (!e.done) {
+                            const newTasks = tasks;
+                            let index = tasks.indexOf(e);
+                            newTasks[index].done = true;
+                            sLS("tasks", JSON.stringify(newTasks));
+                            setTasks(JSON.parse(gLS("tasks")));
+                          } else {
+                            const newTasks = tasks;
+                            let index = tasks.indexOf(e);
+                            newTasks[index].done = false;
+                            sLS("tasks", JSON.stringify(newTasks));
+                            setTasks(JSON.parse(gLS("tasks")));
+                          }
+                        }}
+                        className={
+                          e.done ? styles.flextaskboxdone : styles.flextaskbox
+                        }
+                      >
+                        <p className={styles.task}>{e.value}</p>
+                        <div
+                          className={
+                            e.done ? styles.circledone : styles.circlepending
+                          }
+                        ></div>
+                      </div>
+                    </>
+                  );
+                })
+              ) : null
             ) : (
               <p style={{ textAlign: "center", marginTop: "40%" }}>
                 Ты ещё не создал ни одного задания!

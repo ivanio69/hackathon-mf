@@ -69,9 +69,23 @@
 .flextaskbox {
   display: flex;
   justify-content: space-between;
-  width: 80%;
-  margin: 0 auto;
-  padding: 5px 0;
+  width: 90%;
+  margin: 20px auto;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: rgba(176, 214, 173, 50%);
+}
+
+.flextaskboxdone {
+  text-decoration: line-through;
+  opacity: 50%;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 20px auto;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: rgba(158, 158, 158, 0.5);
 }
 
 .task {
@@ -80,32 +94,16 @@
   font-weight: bold;
 }
 
-.circlegreen {
-  background: green;
+.circlepending {
+  background: #7e7e7e;
   height: 12px;
   width: 12px;
   border-radius: 50px;
 }
 
-.circlered {
-  background: red;
+.circledone {
+  background: #57ff57;
   height: 12px;
   width: 12px;
   border-radius: 50px;
-}
-.footerbox {
-  width: 398px;
-  height: 63px;
-  background: white;
-  border-radius: 20px;
-  margin: 130px auto 20px auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.footerbox div {
-  background: grey;
-  height: 30px;
-  width: 30px;
 }
