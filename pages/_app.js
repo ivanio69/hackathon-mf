@@ -4,10 +4,10 @@ import NavBar from "../_nav";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <div>
       <Component {...pageProps} />
       <NavBar />
-    </>
+    </div>
   );
 }
 

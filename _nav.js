@@ -28,7 +28,7 @@ export default function NavBar() {
             width={36}
             height={60}
             src="/svg2.svg"
-          />{" "}
+          />
         </Link>
       </div>
     </>
