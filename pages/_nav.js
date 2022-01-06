@@ -1,12 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/nav.module.css";
 export default function NavBar() {
   return (
     <div className={styles.footerbox}>
-      <a href="/tasks">
+      <Link href="/tasks">
         <Image className={styles.svg} width={36} height={60} src="/svg1.svg" />
-      </a>{" "}
-      <a href="/">
+      </Link>{" "}
+      <Link href="/">
         <Image
           stroke="#000"
           className={styles.svg}
@@ -14,10 +15,10 @@ export default function NavBar() {
           height={60}
           src="/svg3.svg"
         />
-      </a>
-      <a href="/profile">
+      </Link>
+      <Link href="/profile">
         <Image className={styles.svg} width={36} height={60} src="/svg2.svg" />{" "}
-      </a>{" "}
+      </Link>{" "}
     </div>
   );
 }
