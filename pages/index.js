@@ -7,11 +7,13 @@ export default function Home() {
   let doneTasks = 0;
   const [tasks, setTasks] = useState([]);
   let DTC = 0;
-  tasks.forEach((e) => {
-    if (e.done === true) {
-      DTC = DTC + 1;
-    }
-  });
+  tasks !== null
+    ? tasks.forEach((e) => {
+        if (e.done === true) {
+          DTC = DTC + 1;
+        }
+      })
+    : null;
   useEffect(() => {
     setTasks(process.browser ? JSON.parse(gLS("tasks")) : null);
   }, []);
