@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { getFromLocalStorage as gLS, saveToLocalStorage as sLS } from "./_lib";
+import { getFromLocalStorage as gLS, saveToLocalStorage as sLS } from "../_lib";
 import { useState, useEffect } from "react";
 export default function Home() {
   let doneTasks = 0;

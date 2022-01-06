@@ -1,6 +1,6 @@
 import styles from "../styles/tasks.module.css";
 import Image from "next/image";
-import { getFromLocalStorage as gLS, saveToLocalStorage as sLS } from "./_lib";
+import { getFromLocalStorage as gLS, saveToLocalStorage as sLS } from "../_lib";
 import { useState, useEffect } from "react";
 
 export default function Home() {

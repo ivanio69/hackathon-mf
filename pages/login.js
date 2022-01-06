@@ -1,5 +1,5 @@
 import styles from "../styles/login.module.css";
-import { saveToLocalStorage as sLS } from "./_lib";
+import { saveToLocalStorage as sLS } from "../_lib";
 
 export default function Home() {
   return (

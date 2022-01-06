@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import { getFromLocalStorage } from "./_lib";
+import { getFromLocalStorage } from "../_lib";
 import NavBar from "./pages/_nav";
 
 function MyApp({ Component, pageProps }) {

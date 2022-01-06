@@ -1,5 +1,5 @@
 import styles from "../styles/newtask.module.css";
-import { getFromLocalStorage as gLS, saveToLocalStorage as sLS } from "./_lib";
+import { getFromLocalStorage as gLS, saveToLocalStorage as sLS } from "../_lib";
 
 export default function Home() {
   return (

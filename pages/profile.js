@@ -1,5 +1,5 @@
 import styles from "../styles/profile.module.css";
-import { getFromLocalStorage, saveToLocalStorage } from "./_lib";
+import { getFromLocalStorage, saveToLocalStorage } from "../_lib";
 export default function Profile() {
   return (
     <div>
