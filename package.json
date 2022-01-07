@@ -1,6 +1,6 @@
 {
-  "name": "hackathon-mf",
-  "private": true,
+  "name": "viqs",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
