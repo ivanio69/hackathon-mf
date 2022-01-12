@@ -19,4 +19,9 @@
 
 .svg {
   filter: var(--ic-f);
+  transition: 0.3s;
+}
+
+.svg:hover {
+  transform: translateY(-5px);
 }

@@ -1,0 +1,10 @@
+{
+  "name": "Viqs - давай бороть прокрастинацию вместе!",
+  "short_name": "Viqs",
+  "theme_color": "#16ffb8",
+  "background_color": "#ffffff",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/"
+}

@@ -1,6 +1,10 @@
 import styles from "../styles/tasks.module.css";
 import Image from "next/image";
-import { getFromLocalStorage as gLS, saveToLocalStorage as sLS } from "../_lib";
+import {
+  animatedLink,
+  getFromLocalStorage as gLS,
+  saveToLocalStorage as sLS,
+} from "../_lib";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -24,7 +28,7 @@ export default function Home() {
         <div className={styles.headerbox}>
           <div>
             <Image
-              src="/character.png"
+              src="/characters/felix/1.png"
               height="97.8px"
               width="81.6px"
               className={styles.goblin}
@@ -67,7 +71,7 @@ export default function Home() {
               <></>
             )}
           </div>
-          <div className={styles.secondtaskbox}>
+          <ul className={styles.secondtaskbox}>
             {process.browser > null && tasks !== null && tasks.length > 0 ? (
               typeof tasks.map === "function" ? (
                 tasks.map((e) => {
@@ -75,19 +79,15 @@ export default function Home() {
                     <>
                       <div
                         onClick={() => {
+                          const newTasks = tasks;
+                          let index = tasks.indexOf(e);
                           if (!e.done) {
-                            const newTasks = tasks;
-                            let index = tasks.indexOf(e);
                             newTasks[index].done = true;
-                            sLS("tasks", JSON.stringify(newTasks));
-                            setTasks(JSON.parse(gLS("tasks")));
                           } else {
-                            const newTasks = tasks;
-                            let index = tasks.indexOf(e);
                             newTasks[index].done = false;
-                            sLS("tasks", JSON.stringify(newTasks));
-                            setTasks(JSON.parse(gLS("tasks")));
                           }
+                          sLS("tasks", JSON.stringify(newTasks));
+                          setTasks(JSON.parse(gLS("tasks")));
                         }}
                         className={
                           e.done ? styles.flextaskboxdone : styles.flextaskbox
@@ -109,12 +109,12 @@ export default function Home() {
                 Ты ещё не создал ни одного задания!
               </p>
             )}
-          </div>
+          </ul>
         </div>
         <button
           className={styles.button}
           onClick={() => {
-            window.location.href = "/newtask";
+            animatedLink("/newtask");
           }}
         >
           Добавить задачу
