@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }) {
           sizes="32x32"
         />
         <link rel="apple-touch-icon" href="/ios/192x192.png"></link>
-        <meta name="theme-color" content="#317EFB" />
+        <meta name="theme-color" content="#16FFB8" />
       </Head>
       <Component {...pageProps} />
       <NavBar />
