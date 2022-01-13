@@ -13,7 +13,7 @@ export default function Home() {
             if (process.browser) {
               const value = document.getElementById("taskdata").value;
               if (gLS("tasks") !== null) {
-                const newTasks = JSON.parse(gLS("tasks"));
+                let newTasks = JSON.parse(gLS("tasks"));
                 newTasks.push({ value, done: false });
                 newTasks = JSON.stringify(newTasks);
                 sLS("tasks", newTasks);

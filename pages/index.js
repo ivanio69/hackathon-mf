@@ -4,7 +4,6 @@ import styles from "../styles/Home.module.css";
 import { getFromLocalStorage as gLS, saveToLocalStorage as sLS } from "../_lib";
 import { useState, useEffect } from "react";
 export default function Home() {
-  let doneTasks = 0;
   const [tasks, setTasks] = useState([]);
   let DTC = 0;
   tasks !== null
@@ -30,9 +29,9 @@ export default function Home() {
           <div className={styles.headerbox}>
             <div>
               <Image
-                src="/character.png"
-                height="97.8px"
-                width="81.6px"
+                src="/characters/felix/1.png"
+                height="150px"
+                width="130px"
                 className={styles.goblin}
               />
             </div>
@@ -68,13 +67,8 @@ export default function Home() {
                     />
                   </div>
                   <p className={styles.tasktext}>
-                    У тебя {tasks.length} задач(и) на сегодня, из них{" "}
-                    {typeof tasks.map === "function"
-                      ? tasks.map((e) => {
-                          if (e.done === true) doneTasks = doneTasks + 1;
-                        })
-                      : null}
-                    {doneTasks} завершены.
+                    У тебя {tasks.length} задач(и) на сегодня, из них {DTC} {""}
+                    завершены.
                   </p>
                 </>
               ) : (
@@ -89,19 +83,15 @@ export default function Home() {
                       <>
                         <div
                           onClick={() => {
+                            const newTasks = tasks;
+                            let index = tasks.indexOf(e);
                             if (!e.done) {
-                              const newTasks = tasks;
-                              let index = tasks.indexOf(e);
                               newTasks[index].done = true;
-                              sLS("tasks", JSON.stringify(newTasks));
-                              setTasks(JSON.parse(gLS("tasks")));
                             } else {
-                              const newTasks = tasks;
-                              let index = tasks.indexOf(e);
                               newTasks[index].done = false;
-                              sLS("tasks", JSON.stringify(newTasks));
-                              setTasks(JSON.parse(gLS("tasks")));
                             }
+                            sLS("tasks", JSON.stringify(newTasks));
+                            setTasks(JSON.parse(gLS("tasks")));
                           }}
                           className={
                             e.done ? styles.flextaskboxdone : styles.flextaskbox
