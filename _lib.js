@@ -13,6 +13,39 @@ export const animatedLink = (link) => {
   window.location.href = link;
 };
 
+export const getWaifuSprites = (spriteNumber) => {
+  let waifuIndex = 0;
+  if (process.browser) {
+    if (getFromLocalStorage("waifuIndex") == null) {
+      Number(saveToLocalStorage("waifuIndex", 0));
+      waifuIndex = 0;
+    } else waifuIndex = Number(getFromLocalStorage("waifuIndex"));
+    console.log(waifuIndex);
+    // waifuIndex = 0;
+
+    switch (waifuIndex) {
+      case 0: {
+        switch (spriteNumber) {
+          case 1: {
+            return "/characters/felix/1.png";
+          }
+          case 2: {
+            return "/characters/felix/2.png";
+          }
+        }
+      }
+      case 1: {
+        return "/characters/mai/1.png";
+      }
+      case 2: {
+        return "/characters/senko/1.png";
+      }
+    }
+  } else {
+    return "/404";
+  }
+};
+
 export default function Lib() {
   return (
     <>

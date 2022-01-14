@@ -105,3 +105,18 @@
   width: 90%;
   color: black;
 }
+
+.select {
+  color: #000;
+  background-color: #16ffb8;
+  width: 90%;
+  display: block;
+  margin: 20px auto;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+}
+
+.select option {
+  color: #000;
+}

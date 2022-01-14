@@ -1,7 +1,11 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { getFromLocalStorage as gLS, saveToLocalStorage as sLS } from "../_lib";
+import {
+  getFromLocalStorage as gLS,
+  getWaifuSprites,
+  saveToLocalStorage as sLS,
+} from "../_lib";
 import { useState, useEffect } from "react";
 export default function Home() {
   const [tasks, setTasks] = useState([]);
@@ -29,7 +33,7 @@ export default function Home() {
           <div className={styles.headerbox}>
             <div>
               <Image
-                src="/characters/felix/1.png"
+                src={getWaifuSprites(1)}
                 height="150px"
                 width="130px"
                 className={styles.goblin}
@@ -80,31 +84,30 @@ export default function Home() {
                 typeof tasks.map === "function" ? (
                   tasks.map((e) => {
                     return (
-                      <>
-                        <div
-                          onClick={() => {
-                            const newTasks = tasks;
-                            let index = tasks.indexOf(e);
-                            if (!e.done) {
-                              newTasks[index].done = true;
-                            } else {
-                              newTasks[index].done = false;
-                            }
-                            sLS("tasks", JSON.stringify(newTasks));
-                            setTasks(JSON.parse(gLS("tasks")));
-                          }}
-                          className={
-                            e.done ? styles.flextaskboxdone : styles.flextaskbox
+                      <div
+                        key={e.value}
+                        onClick={() => {
+                          const newTasks = tasks;
+                          let index = tasks.indexOf(e);
+                          if (!e.done) {
+                            newTasks[index].done = true;
+                          } else {
+                            newTasks[index].done = false;
                           }
-                        >
-                          <p className={styles.task}>{e.value}</p>
-                          <div
-                            className={
-                              e.done ? styles.circledone : styles.circlepending
-                            }
-                          ></div>
-                        </div>
-                      </>
+                          sLS("tasks", JSON.stringify(newTasks));
+                          setTasks(JSON.parse(gLS("tasks")));
+                        }}
+                        className={
+                          e.done ? styles.flextaskboxdone : styles.flextaskbox
+                        }
+                      >
+                        <p className={styles.task}>{e.value}</p>
+                        <div
+                          className={
+                            e.done ? styles.circledone : styles.circlepending
+                          }
+                        ></div>
+                      </div>
                     );
                   })
                 ) : null

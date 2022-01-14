@@ -1,6 +1,12 @@
+import { useEffect, useState } from "react";
 import styles from "../styles/profile.module.css";
 import { getFromLocalStorage, saveToLocalStorage } from "../_lib";
+
 export default function Profile() {
+  const [waifuIndex, setWaifuIndex] = useState(0);
+  useEffect(() => {
+    setWaifuIndex(Number(getFromLocalStorage("waifuIndex")));
+  }, []);
   return (
     <>
       <div>
@@ -50,6 +56,21 @@ export default function Profile() {
           >
             Сменить тему
           </button>
+          <h2>Выбрать вайфу</h2>
+          <select
+            className={styles.select}
+            onChange={(e) => {
+              saveToLocalStorage("waifuIndex", e.target.options.selectedIndex);
+            }}
+          >
+            <option selected={waifuIndex === 0 ? true : false}>
+              Феликс Аргайл
+            </option>
+            <option selected={waifuIndex === 1 ? true : false}>
+              Май Сакурадзима
+            </option>
+            <option selected={waifuIndex === 2 ? true : false}>Сенко</option>
+          </select>
         </main>
       </div>
     </>
