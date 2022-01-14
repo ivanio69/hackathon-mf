@@ -29,8 +29,8 @@ export default function Home() {
           <div>
             <Image
               src="/characters/felix/1.png"
-              height="97.8px"
-              width="81.6px"
+              height="150px"
+              width="130px"
               className={styles.goblin}
             />
           </div>
@@ -78,6 +78,7 @@ export default function Home() {
                   return (
                     <>
                       <div
+                        key={e.value}
                         onClick={() => {
                           const newTasks = tasks;
                           let index = tasks.indexOf(e);

@@ -37,6 +37,7 @@ body {
 main {
   animation: appear 0.3s;
   animation-play-state: paused;
+  animation-fill-mode: both;
 }
 a {
   color: black;
